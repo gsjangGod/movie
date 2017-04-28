@@ -26,13 +26,12 @@
 	export default {
 		name: 'hot',
 		data () {
-		return {
-			hot:[],
-			coming:[]
-		}
+			return {
+				hot:[],
+				coming:[]
+			}
 		},
 		mounted () {
-
 			var the = this;
 			function getHot() {
 				return the.axios.get('https://node-douban-api.herokuapp.com/movie/in_theaters?start=0&count=9');
@@ -54,6 +53,11 @@
 				the.coming = getcoming.data;
 				localStorage.setItem('hot',JSON.stringify(gethot.data))
 		    	localStorage.setItem('coming',JSON.stringify(getcoming.data))
+		    	setTimeout(()=>{
+		    		the.$nextTick(() => {
+					  the.$refs.scroller.reset()
+					})
+		    	},1000)
 			  }));
 			}
 

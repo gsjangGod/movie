@@ -10,7 +10,7 @@
 			<img slot="icon" src="./assets/img/tab-rank-def.png">
 			<span slot="label">影片排行</span>
 		</tabbar-item>
-		<tabbar-item badge="2" link="/Search">
+		<tabbar-item badge="20" link="/Search">
 			<img slot="icon" src="./assets/img/tab-search-def.png" width="25" height="25">
 			<span slot="label">影片搜索</span>
 		</tabbar-item>
@@ -24,6 +24,11 @@ import { Tabbar, TabbarItem, Divider } from 'vux'
 
 export default {
   name: 'app',
+  data () {
+  	return {
+  		check:true
+  	}
+  },
   components: {
   	Tabbar,
   	TabbarItem,
